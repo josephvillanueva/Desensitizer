@@ -1,0 +1,9 @@
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.dsproj
+model-packs/
+analyzer/
+

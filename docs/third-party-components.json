@@ -1,0 +1,220 @@
+{
+  "title": "Third-party notices for Desensitizer and AI Desensitizer",
+  "generatedNote": "Data table for tools/New-ThirdPartyNotices.ps1. Edit this file, then run the script to regenerate THIRD-PARTY-NOTICES.txt. This is a technical inventory, not legal advice.",
+  "reviewedOn": "2026-10-10",
+  "sections": [
+    {
+      "name": "Language models (weights shipped in the portable folders)",
+      "components": [
+        {
+          "name": "Qwen3-4B (Q4_K_M GGUF)",
+          "version": "Qwen3-4B-Q4_K_M.gguf, GGUF metadata name 'Qwen3 4B Instruct Awq'",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "Apache-2.0",
+          "source": "https://huggingface.co/Qwen/Qwen3-4B-GGUF",
+          "licenseFile": "licenses/Qwen3-Apache-2.0.txt",
+          "licenseStatus": "obtained (shipped in the portable pack as Qwen-LICENSE.txt, and the upstream Qwen3-4B LICENSE was fetched)",
+          "obligation": "Include the licence text with redistributed copies. Keep copyright and attribution notices. No trademark rights.",
+          "notes": "The exact Hugging Face repository the GGUF came from was not recorded; the source URL is the one named in the project README."
+        },
+        {
+          "name": "NuExtract 2.0 2B (Q4_K_M GGUF)",
+          "version": "NuExtract-2.0-2B-Q4_K_M.gguf, based on Qwen2-VL-2B-Instruct",
+          "apps": "AI Desensitizer",
+          "license": "MIT (declared in the GGUF metadata and on the model card); base model Qwen2-VL-2B-Instruct is Apache-2.0 (model card metadata)",
+          "source": "https://huggingface.co/numind/NuExtract-2.0-2B",
+          "licenseFile": "MISSING",
+          "licenseStatus": "MISSING: the model repository has no LICENSE file (404). Licence is declared in metadata only. Ask the publisher or keep the model card page as evidence.",
+          "obligation": "MIT: keep the copyright and permission notice with copies. Apache-2.0 base model: include the licence text and notices.",
+          "notes": "The GGUF conversion repository and its publisher were not recorded (unverified)."
+        },
+        {
+          "name": "Gemma 3 4B instruction-tuned (q4_0 GGUF)",
+          "version": "gemma-3-4b-it-q4_0.gguf",
+          "apps": "AI Desensitizer",
+          "license": "Gemma Terms of Use (custom licence, NOT an open-source licence) plus the Gemma Prohibited Use Policy",
+          "source": "https://ai.google.dev/gemma/terms and https://ai.google.dev/gemma/prohibited_use_policy",
+          "licenseFile": "licenses/Gemma-Terms-of-Use.txt and licenses/Gemma-Prohibited-Use-Policy.txt",
+          "licenseStatus": "obtained from the official pages (text extracted from the HTML, terms last modified 2026-04-01, policy last modified 2024-02-21). Re-check the live pages before each release.",
+          "obligation": "Any Distribution to a third party must: include the use restrictions as an enforceable term, give recipients a copy of the Terms, mark modified files, and ship a Notice text file containing exactly: \"Gemma is provided under and subject to the Gemma Terms of Use found at ai.google.dev/gemma/terms\". Use must follow the Prohibited Use Policy (it includes restrictions on processing sensitive personal information without required authorisations and on automated decisions affecting individual rights). Google may terminate for breach and require deletion of copies.",
+          "notes": "The GGUF repository the file came from was not recorded (unverified). The Gemma terms apply regardless of the source of the weights."
+        },
+        {
+          "name": "GLiNER small v2.1 (business-context worker)",
+          "version": "urchade/gliner_small-v2.1, DeBERTa-style encoder (6 layers, hidden size 768); exact backbone repository not verified",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "Apache-2.0 (model card metadata)",
+          "source": "https://huggingface.co/urchade/gliner_small-v2.1",
+          "licenseFile": "licenses/GLiNER-Apache-2.0.txt (licence of the GLiNER library repository; the model repository has no separate licence file in the local copy)",
+          "licenseStatus": "obtained for the library; model licence confirmed from the model card only. Older GLiNER v0 and v1 weights are CC BY-NC 4.0 (non-commercial); this app uses v2.1, but confirm the shipped file really is v2.1.",
+          "obligation": "Include the Apache-2.0 text and notices. State changes if modified.",
+          "notes": "The local model folder was downloaded with huggingface_hub; its pytorch_model.bin hash (lfs sha256 1d4e83e4...) is recorded in the cache metadata and can be compared with the upstream repository."
+        },
+        {
+          "name": "OpenAI Privacy Filter (ONNX q4, privacy-filter worker)",
+          "version": "onnx/model_q4.onnx plus external data; upstream repository openai/privacy-filter",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "Apache-2.0 (model card metadata)",
+          "source": "https://huggingface.co/openai/privacy-filter",
+          "licenseFile": "MISSING (no model-specific LICENSE file obtained; the standard Apache-2.0 text is in licenses/Qwen3-Apache-2.0.txt)",
+          "licenseStatus": "MISSING: only the metadata declaration was verified. The model card says it is a redaction and data minimisation aid, not an anonymisation or compliance guarantee.",
+          "obligation": "Include the Apache-2.0 text and notices.",
+          "notes": "The local files were downloaded from Hugging Face; whether the ONNX q4 files came from the openai repository or a derivative repository is not recorded (unverified)."
+        },
+        {
+          "name": "spaCy English pipeline en_core_web_sm",
+          "version": "3.8.0",
+          "apps": "Desensitizer, AI Desensitizer (Presidio worker)",
+          "license": "MIT",
+          "source": "https://github.com/explosion/spacy-models",
+          "licenseFile": "licenses/en_core_web_sm-MIT.txt and licenses/en_core_web_sm-LICENSES_SOURCES.txt",
+          "licenseStatus": "obtained from the installed package. LICENSES_SOURCES lists training-data licences (OntoNotes 5 'commercial (licensed by Explosion)', WordNet 3.0 licence, others); read it.",
+          "obligation": "Keep the MIT notice. WordNet licence requires its copyright notice and disclaimer to appear on all copies.",
+          "notes": "Whether training-data licences affect use of the model is an open question for legal review."
+        }
+      ]
+    },
+    {
+      "name": "Native and Python components inside the portable folders",
+      "components": [
+        {
+          "name": "llama.cpp (llama-server and ggml libraries, Windows CPU build)",
+          "version": "build number not recorded (unverified)",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/ggml-org/llama.cpp",
+          "licenseFile": "licenses/llama.cpp-MIT.txt",
+          "licenseStatus": "obtained (shipped in the portable pack as llama.cpp-LICENSE.txt)",
+          "obligation": "Keep the copyright and permission notice with copies.",
+          "notes": "The pack also ships libomp.dll (LLVM OpenMP runtime, Apache-2.0 with LLVM exception, unverified): add its notice if confirmed."
+        },
+        {
+          "name": "Presidio Analyzer",
+          "version": "2.2.364",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/microsoft/presidio",
+          "licenseFile": "licenses/Presidio-MIT.txt",
+          "licenseStatus": "obtained from the upstream repository (the installed package carries no licence file)",
+          "obligation": "Keep the copyright and permission notice with copies.",
+          "notes": ""
+        },
+        {
+          "name": "spaCy",
+          "version": "3.8.16",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/explosion/spaCy",
+          "licenseFile": "licenses/spaCy-MIT.txt",
+          "licenseStatus": "obtained from the upstream repository (the installed package also carries a copy)",
+          "obligation": "Keep the copyright and permission notice with copies.",
+          "notes": ""
+        },
+        {
+          "name": "GLiNER (Python library)",
+          "version": "not recorded (no dist-info folder in the bundle; unverified)",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "Apache-2.0",
+          "source": "https://github.com/urchade/GLiNER",
+          "licenseFile": "licenses/GLiNER-Apache-2.0.txt",
+          "licenseStatus": "obtained from the upstream repository",
+          "obligation": "Include the Apache-2.0 text and notices.",
+          "notes": ""
+        },
+        {
+          "name": "PyInstaller (bundler of the three analyzer executables)",
+          "version": "not recorded (unverified)",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "GPL-2.0-or-later with a bootloader exception",
+          "source": "https://github.com/pyinstaller/pyinstaller",
+          "licenseFile": "licenses/PyInstaller-COPYING.txt",
+          "licenseStatus": "obtained from the upstream repository",
+          "obligation": "The exception lets you distribute executables built with PyInstaller under any licence, including the embedded bootloader. The GPL applies to PyInstaller itself, not to the bundled application. Keep the PyInstaller notice if you redistribute the bootloader.",
+          "notes": "Confirm with legal that the exception wording covers the way the executables are distributed."
+        },
+        {
+          "name": "PyTorch and transformers (used by GLiNER)",
+          "version": "torch 2.14.0 (from dist-info); transformers version not recorded",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "torch: BSD-3-Clause style with several bundled third-party licences (the metadata lists Apache-2.0, LLVM exception, BSD-2, BSD-3, BSL-1.0, MIT); transformers: Apache-2.0 (unverified)",
+          "source": "https://github.com/pytorch/pytorch and https://github.com/huggingface/transformers",
+          "licenseFile": "licenses/python/torch-LICENSE.txt (top-level file only; the full dist-info licenses folder holds many more files)",
+          "licenseStatus": "partly obtained: torch top-level licence copied. transformers licence MISSING.",
+          "obligation": "Keep notices. The torch package has dozens of nested licence files; ship the whole dist-info licenses folder if redistributing outside this laptop.",
+          "notes": ""
+        },
+        {
+          "name": "onnxruntime",
+          "version": "1.30.0",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/microsoft/onnxruntime",
+          "licenseFile": "MISSING (METADATA declares 'MIT License'; no licence file in the dist-info)",
+          "licenseStatus": "MISSING",
+          "obligation": "Keep the copyright and permission notice with copies.",
+          "notes": ""
+        },
+        {
+          "name": "Other Python packages bundled in the analyzers",
+          "version": "numpy 2.4.6, huggingface_hub 0.36.2, safetensors 0.8.0, tokenizers 0.22.2, sentencepiece 0.2.2, accelerate 1.15.0, hf_xet 1.6.0, regex 2026.9.10, requests 2.34.2, psutil 7.2.2, protobuf 7.36.1, pydantic 2.13.5, pyyaml 6.0.3, jinja2 3.1.6, markupsafe 3.0.3, click 8.5.0, rich 15.0.0, filelock 3.32.7, packaging 26.3, smart_open 8.0.1, tqdm 4.70.1, phonenumbers 9.0.39, tldextract 5.3.2, importlib_metadata 8.7.1",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "BSD-3-Clause, MIT, Apache-2.0 (and for tqdm MPL-2.0 AND MIT; for regex Apache-2.0 AND CNRI-Python; for packaging Apache-2.0 OR BSD-2-Clause), as declared in each package's metadata",
+          "source": "PyPI project pages for each package",
+          "licenseFile": "licenses/python/ (one file per package where the installed package carried a licence file)",
+          "licenseStatus": "obtained from the installed dist-info folders for all listed packages except tokenizers and sentencepiece (no licence file in dist-info: MISSING; both declare Apache-2.0 in metadata or on their project pages)",
+          "obligation": "Keep copyright and permission notices. Apache-2.0 packages: include the licence text. tqdm (MPL-2.0 portions): provide the source of any modified MPL files (none are modified here).",
+          "notes": "The versions are read from dist-info folder names in the installed portable folder on 2026-10-10 and may drift on rebuild."
+        },
+        {
+          "name": "Python runtime embedded by PyInstaller",
+          "version": "not recorded (unverified)",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "Python Software Foundation License",
+          "source": "https://docs.python.org/3/license.html",
+          "licenseFile": "MISSING",
+          "licenseStatus": "MISSING: not fetched in this review",
+          "obligation": "Include the PSF licence text and copyright notice with copies.",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "name": ".NET components (compiled into or shipped beside the apps)",
+      "components": [
+        {
+          "name": ".NET runtime and Windows Desktop runtime (self-contained)",
+          "version": "8.0.31 (from runtimeconfig includedFrameworks and coreclr.dll)",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/dotnet/runtime and https://github.com/dotnet/wpf",
+          "licenseFile": "licenses/DotNet-runtime-MIT.txt and licenses/DotNet-runtime-ThirdPartyNotices.txt",
+          "licenseStatus": "obtained (copied from the .NET SDK folder work\\dotnet8, same 8.0.x servicing line; the self-contained portable folders do NOT currently contain these files)",
+          "obligation": "Self-contained publishing redistributes the runtime: include the .NET licence and its third-party notices with the portable folder.",
+          "notes": ""
+        },
+        {
+          "name": "WPF-UI (Wpf.Ui)",
+          "version": "4.2.0",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/lepoco/wpfui",
+          "licenseFile": "licenses/WPF-UI-MIT.txt and licenses/WPF-UI-ThirdPartyNotices.txt",
+          "licenseStatus": "obtained from the NuGet package. Its third-party notices cover VirtualizingWrapPanel (MIT), Fluent UI System Icons (MIT), dotnet/wpf, microsoft-ui-xaml and the Segoe Fluent Icons font reference.",
+          "obligation": "Keep the copyright and permission notice. Segoe Fluent Icons is a Microsoft font governed by Windows licensing; the app uses it only if installed on the user's Windows (unverified how the control library references it).",
+          "notes": ""
+        },
+        {
+          "name": "Open XML SDK (DocumentFormat.OpenXml and .Framework)",
+          "version": "3.5.1",
+          "apps": "Desensitizer, AI Desensitizer",
+          "license": "MIT",
+          "source": "https://github.com/dotnet/Open-XML-SDK",
+          "licenseFile": "licenses/OpenXML-SDK-MIT.txt",
+          "licenseStatus": "obtained from the upstream repository (the NuGet package carries only an SPDX expression and no licence file)",
+          "obligation": "Keep the copyright and permission notice with copies.",
+          "notes": "Transitive: System.IO.Packaging (MIT, .NET Foundation)."
+        }
+      ]
+    }
+  ]
+}

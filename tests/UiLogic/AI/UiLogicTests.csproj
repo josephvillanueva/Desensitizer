@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWPF>true</UseWPF><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><DefineConstants>AI_APP</DefineConstants></PropertyGroup>
+  <ItemGroup><Using Include="System.IO" /><Using Include="System.Threading" /><ProjectReference Include="../../../AI.Desensitizer/Desensitizer.csproj"/><Compile Include="../*.cs" Link="%(Filename)%(Extension)" /></ItemGroup>
+</Project>
